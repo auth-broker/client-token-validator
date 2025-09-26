@@ -13,7 +13,7 @@ description = "A client library for accessing FastAPI"
 name = "token_validator_client"
 readme = "README.md"
 requires-python = "~=3.9"
-version = "0.1.0"
+version = "0.1.1"
 
 [tool.hatch.build.targets.sdist]
 include = [
