@@ -1,5 +1,5 @@
 [project]
-name = "token_validator"
+name = "ab-client-token-validator"
 version = "0.1.0"
 description = "A client library for accessing FastAPI"
 authors = []
@@ -13,16 +13,16 @@ dependencies = [
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "token_validator",
+    "ab_client_token_validator",
     "CHANGELOG.md",
-    "token_validator/py.typed",
+    "ab_client_token_validator/py.typed",
 ]
 
 [tool.hatch.build.targets.wheel]
 include = [
-    "token_validator",
+    "ab_client_token_validator",
     "CHANGELOG.md",
-    "token_validator/py.typed",
+    "ab_client_token_validator/py.typed",
 ]
 
 [build-system]
