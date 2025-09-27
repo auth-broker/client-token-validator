@@ -1,23 +1,33 @@
-[tool.poetry]
+[project]
 name = "token_validator"
 version = "0.1.0"
 description = "A client library for accessing FastAPI"
 authors = []
+requires-python = "~=3.9"
 readme = "README.md"
-packages = [
-    { include = "token_validator" },
+dependencies = [
+    "httpx>=0.23.0,<0.29.0",
+    "attrs>=22.2.0",
+    "python-dateutil>=2.8.0,<3",
 ]
-include = ["CHANGELOG.md", "token_validator/py.typed"]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-httpx = ">=0.23.0,<0.29.0"
-attrs = ">=22.2.0"
-python-dateutil = "^2.8.0"
+[tool.hatch.build.targets.sdist]
+include = [
+    "token_validator",
+    "CHANGELOG.md",
+    "token_validator/py.typed",
+]
+
+[tool.hatch.build.targets.wheel]
+include = [
+    "token_validator",
+    "CHANGELOG.md",
+    "token_validator/py.typed",
+]
 
 [build-system]
-requires = ["poetry-core>=2.0.0,<3.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [tool.ruff]
 line-length = 120

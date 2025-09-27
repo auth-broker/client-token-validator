@@ -4,12 +4,13 @@ from typing import Any, TypeVar
 from attrs import define as _attrs_define
 from attrs import field as _attrs_field
 
-T = TypeVar("T", bound="TokenRequest")
+T = TypeVar("T", bound="ValidateTokenRequest")
 
 
 @_attrs_define
-class TokenRequest:
-    """
+class ValidateTokenRequest:
+    """Schema for token request.
+
     Attributes:
         token (str):
     """
@@ -35,12 +36,12 @@ class TokenRequest:
         d = dict(src_dict)
         token = d.pop("token")
 
-        token_request = cls(
+        validate_token_request = cls(
             token=token,
         )
 
-        token_request.additional_properties = d
-        return token_request
+        validate_token_request.additional_properties = d
+        return validate_token_request
 
     @property
     def additional_keys(self) -> list[str]:

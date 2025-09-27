@@ -6,14 +6,14 @@ import httpx
 from ... import errors
 from ...client import AuthenticatedClient, Client
 from ...models.http_validation_error import HTTPValidationError
-from ...models.token_request import TokenRequest
+from ...models.validate_token_request import ValidateTokenRequest
 from ...models.validated_oidc_claims import ValidatedOIDCClaims
 from ...types import Response
 
 
 def _get_kwargs(
     *,
-    body: TokenRequest,
+    body: ValidateTokenRequest,
 ) -> dict[str, Any]:
     headers: dict[str, Any] = {}
 
@@ -61,12 +61,14 @@ def _build_response(
 def sync_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
-    body: TokenRequest,
+    body: ValidateTokenRequest,
 ) -> Response[Union[HTTPValidationError, ValidatedOIDCClaims]]:
     """Validate Token
 
+     Validate a token.
+
     Args:
-        body (TokenRequest):
+        body (ValidateTokenRequest): Schema for token request.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -90,12 +92,14 @@ def sync_detailed(
 def sync(
     *,
     client: Union[AuthenticatedClient, Client],
-    body: TokenRequest,
+    body: ValidateTokenRequest,
 ) -> Optional[Union[HTTPValidationError, ValidatedOIDCClaims]]:
     """Validate Token
 
+     Validate a token.
+
     Args:
-        body (TokenRequest):
+        body (ValidateTokenRequest): Schema for token request.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -114,12 +118,14 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Union[AuthenticatedClient, Client],
-    body: TokenRequest,
+    body: ValidateTokenRequest,
 ) -> Response[Union[HTTPValidationError, ValidatedOIDCClaims]]:
     """Validate Token
 
+     Validate a token.
+
     Args:
-        body (TokenRequest):
+        body (ValidateTokenRequest): Schema for token request.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
@@ -141,12 +147,14 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Union[AuthenticatedClient, Client],
-    body: TokenRequest,
+    body: ValidateTokenRequest,
 ) -> Optional[Union[HTTPValidationError, ValidatedOIDCClaims]]:
     """Validate Token
 
+     Validate a token.
+
     Args:
-        body (TokenRequest):
+        body (ValidateTokenRequest): Schema for token request.
 
     Raises:
         errors.UnexpectedStatus: If the server returns an undocumented status code and Client.raise_on_unexpected_status is True.
