@@ -1,7 +1,11 @@
+from __future__ import annotations
+
+import json
+from collections.abc import Generator
 from typing import Any, Dict, Optional, Union
 
 import httpx
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel
 
 from ..exceptions import HTTPException
 from ..models import *
@@ -23,7 +27,7 @@ class SyncClient(BaseModel):
     def validate_token_validate_post(
         self,
         data: ValidateTokenRequest,
-    ) -> Any:
+    ) -> ValidatedOIDCClaims:
         base_url = self.base_url
         path = f"/validate"
 
@@ -52,4 +56,5 @@ class SyncClient(BaseModel):
             )
 
         body = None if 200 == 204 else response.json()
-        return body
+
+        return ValidatedOIDCClaims.model_validate(body) if body is not None else ValidatedOIDCClaims()
