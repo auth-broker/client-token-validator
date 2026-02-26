@@ -5,7 +5,7 @@ from collections.abc import Generator
 from typing import Any, Dict, Optional, Union
 
 import httpx
-from pydantic import BaseModel
+from pydantic import BaseModel, TypeAdapter
 
 from ..exceptions import HTTPException
 from ..models import *
@@ -57,4 +57,4 @@ class SyncClient(BaseModel):
 
         body = None if 200 == 204 else response.json()
 
-        return ValidatedOIDCClaims.model_validate(body) if body is not None else ValidatedOIDCClaims()
+        return TypeAdapter(ValidatedOIDCClaims).validate_python(body)
