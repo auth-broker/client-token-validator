@@ -1,6 +1,6 @@
 [project]
 name = "ab-client-token-validator"
-version = "1.2.0"
+version = "1.2.1"
 description = "A client library for accessing FastAPI"
 authors = []
 requires-python = ">=3.9,<4"
